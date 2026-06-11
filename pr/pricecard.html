@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Toggle</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <style>
+        button{
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:rgb(24,13,174);
+        }
+    </style>
+
+
+</head>
+
+<!--   1: added p-4 for mobile spacing -->
+<body class="bg-[rgb(128,128,128)] grid place-items-center min-h-screen p-4">
+    
+    <input type="checkbox" id="toggle" class="peer hidden">
+
+    <div class="relative flex flex-col justify-center items-center
+                rounded-xl 
+                w-full max-w-7xl
+                min-h-[70vh]
+                px-4 md:px-8 py-12
+                text-serif
+                peer-checked:[&_.toggle-track]:bg-violet-600
+                peer-checked:[&_.toggle-dot]:translate-x-6
+                peer-checked:[&_.monthly]:hidden
+                peer-checked:[&_.yearly]:inline">
+
+        <!--   2:
+            w-[75%] → w-full max-w-7xl
+            added responsive padding -->
+
+        <!-- header -->
+        <div class="font-bold mb-10 text-center">
+            <!--   3:
+                removed absolute positioning -->
+
+            <h1 class="text-3xl md:text-5xl text-[rgb(24,17,113)]">
+                Choose Your Plan
+            </h1>
+
+            <!--   4:
+                responsive heading -->
+        </div>
+
+        <!-- toggle -->
+        <div class="mb-10 flex items-center justify-center
+                    font-semibold gap-3 md:gap-6
+                    text-base md:text-xl flex-wrap">
+
+            <!--   5:
+                responsive text + gap -->
+
+            <p>Monthly</p>
+
+            <label
+                for="toggle"
+                class="toggle-track relative h-8 w-14 rounded-full
+                cursor-pointer bg-gray-300 transition duration-300">
+
+                <span
+                    class="toggle-dot absolute left-1 top-1
+                    w-6 h-6 bg-white rounded-full
+                    transition duration-300">
+                </span>
+
+            </label>
+
+            <p>Yearly</p>
+
+        </div>
+
+        <!-- pricing cards -->
+        <div class="flex flex-col lg:flex-row
+                    items-center
+                    gap-8 w-full justify-center">
+
+            <!--   6:
+                flex row → responsive stack -->
+
+            <!-- card 1 -->
+            <div class="w-full max-w-[20em]
+                        h-auto min-h-[20em]
+                        rounded-xl flex flex-col items-center
+                        py-6 px-6 bg-white
+                        transition duration-300
+                        hover:-translate-y-2">
+
+                <!--   7:
+                    fixed width → responsive -->
+
+                <h2 class="text-2xl font-semibold">
+                    Basic
+                </h2>
+
+                <div class="text-3xl font-semibold mt-6 text-violet-600">
+
+                    <span class="monthly">
+                        Rs. 499
+                    </span>
+
+                    <span class="yearly hidden">
+                        Rs. 4999
+                    </span>
+
+                </div>
+
+                <ul class="mt-4 w-full text-center">
+                    <li class="py-3 border-b">1 website</li>
+                    <li class="py-3 border-b">1 GB Storage</li>
+                </ul>
+
+                <button class="mt-6 w-full bg-[#4f46e5]
+                            rounded-xl py-3 text-white">
+                    Select Plan
+                </button>
+
+            </div>
+
+            <!-- card 2 -->
+            <div class="relative
+                        w-full max-w-[22em]
+                        min-h-[24em]
+                        rounded-xl
+                        flex flex-col items-center
+                        px-6 py-6
+                        bg-white
+                        border-3 border-violet-600
+                        transition duration-300
+                        hover:scale-105">
+
+                <!--   8:
+                    responsive width -->
+
+                <span class="absolute
+                    left-1/2 -translate-x-1/2
+                    top-0 -translate-y-1/2
+                    bg-violet-600 text-white
+                    px-3 py-1 rounded-full
+                    text-sm font-semibold shadow-2xl">
+
+                    Most Popular
+
+                </span>
+
+                <!--   9:
+                    left-[120px]
+                    → centered badge -->
+
+                <h2 class="text-3xl font-bold">
+                    Pro
+                </h2>
+
+                <div class="text-4xl font-semibold mt-6 text-violet-600">
+
+                    <span class="monthly">
+                        Rs. 999
+                    </span>
+
+                    <span class="yearly hidden">
+                        Rs. 9999
+                    </span>
+
+                </div>
+
+                <ul class="w-full mt-8 text-center">
+                    <li class="py-3 border-b">10 website</li>
+                    <li class="py-3 border-b">10 GB Storage</li>
+                </ul>
+
+                <button class="mt-7 w-full bg-[#4f46e5]
+                            rounded-xl py-3 text-white">
+                    Select Plan
+                </button>
+
+            </div>
+
+            <!-- card 3 -->
+            <div class="w-full max-w-[20em]
+                        min-h-[20em]
+                        rounded-xl flex flex-col items-center
+                        px-6 py-6 bg-white
+                        transition duration-300
+                        hover:-translate-y-2">
+
+                <h2 class="text-2xl font-semibold">
+                    Enterprise
+                </h2>
+
+                <div class="text-3xl font-semibold mt-6 text-violet-600">
+
+                    <span class="monthly">
+                        Rs. 1999
+                    </span>
+
+                    <span class="yearly hidden">
+                        Rs. 19999
+                    </span>
+
+                </div>
+
+                <ul class="w-full mt-4 text-center">
+                    <li class="py-3 border-b">
+                        24X7 Support
+                    </li>
+                    <li class="py-3 border-b">
+                        1 TB Storage
+                    </li>
+                </ul>
+
+                <button class="mt-6 w-full bg-[#4f46e5]
+                            rounded-xl py-3 text-white">
+                    Select Plan
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

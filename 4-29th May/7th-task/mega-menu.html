@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS-Only Mega Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --amber: #f59e0b;
+      --ink: #0a0a0a;
+      --surface: #141414;
+      --muted: #6b7280;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #1a1a1a;
+    }
+
+    /* ── DISPLAY FONT ── */
+    .font-display { font-family: 'Bebas Neue', sans-serif; }
+
+    /* ── NAV ITEM: the :focus-within magic ── */
+    .nav-item { position: relative; }
+
+    /* Dropdown hidden by default */
+    .mega-dropdown {
+      position: absolute;
+      top: 100%;           /* flush — no gap for mouse to fall through */
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 640px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      padding-top: 12px;   /* visual gap lives here, inside hover zone */
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 0ms linear 180ms;
+      z-index: 50;
+    }
+
+    /* Show on hover OR keyboard focus-within */
+    .nav-item:hover .mega-dropdown,
+    .nav-item:focus-within .mega-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+      transition:
+        opacity 200ms ease,
+        transform 200ms ease,
+        visibility 0ms linear 0ms;
+    }
+
+    /* Active nav link indicator */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--amber);
+      transition: width 200ms ease;
+    }
+    .nav-item:hover .nav-link::after,
+    .nav-item:focus-within .nav-link::after {
+      width: 100%;
+    }
+
+    /* Focus ring for keyboard users */
+    .nav-link:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+    .dropdown-link:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Arrow connector — sits inside the padding-top zone */
+    .mega-dropdown::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #1f1f1f;
+    }
+
+    /* Divider glow line */
+    .amber-line {
+      height: 2px;
+      background: linear-gradient(90deg, var(--amber), transparent);
+    }
+
+    /* Column hover highlight */
+    .dropdown-col-item:hover .dropdown-link {
+      color: var(--amber);
+    }
+    .dropdown-col-item {
+      transition: background 150ms ease;
+    }
+    .dropdown-col-item:hover {
+      background: rgba(245, 158, 11, 0.06);
+    }
+
+    /* Hero column (left accent column) */
+    .hero-col {
+      background: linear-gradient(135deg, #1c1c1c, #111);
+      border-right: 1px solid #2a2a2a;
+    }
+
+    /* Scroll reveal for page content */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+  </style>
+</head>
+<body class="min-h-screen text-gray-100">
+
+  <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+  <nav
+    role="navigation"
+    aria-label="Main navigation"
+    class="sticky top-0 z-40 border-b border-white/10"
+    style="background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);"
+  >
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="#" class="font-display text-2xl tracking-widest text-white focus-visible:outline-amber-400">
+          ARCH<span style="color:var(--amber)">OS</span>
+        </a>
+
+        <!-- Nav links -->
+        <ul role="menubar" class="hidden md:flex items-center gap-1" aria-label="Site navigation">
+
+          <!-- ─── PRODUCTS (mega) ─── -->
+          <li role="none" class="nav-item">
+            <a
+              href="#"
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="false"
+              tabindex="0"
+              class="nav-link relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+            >
+              Products
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+
+            <!-- MEGA DROPDOWN: Products -->
+            <div class="mega-dropdown rounded-xl overflow-hidden shadow-2xl border border-white/10" style="background:#141414;" role="menu" aria-label="Products submenu">
+              <div class="grid grid-cols-3">
+
+                <!-- Hero column -->
+                <div class="hero-col p-6 flex flex-col justify-between">
+                  <div>
+                    <div class="font-display text-3xl tracking-widest text-white mb-1">PRODUCTS</div>
+                    <div class="amber-line w-16 mb-4"></div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Engineered tools for modern infrastructure teams. Built for scale.</p>
+                  </div>
+                  <a href="#" class="dropdown-link mt-6 inline-flex items-center gap-2 text-xs font-medium focus-visible:outline-amber-400"
+                     style="color:var(--amber)">
+                    Browse all →
+                  </a>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="p-6 border-r border-white/5">
+                  <p class="font-display text-xs tracking-[0.2em] text-gray-500 mb-4">PLATFORM</p>
+                  <ul role="none" class="space-y-1">
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex flex-col gap-0.5 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-sm font-medium">Cloud Engine</span>
+                        <span class="text-xs text-gray-500">Distributed compute layer</span>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex flex-col gap-0.5 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-sm font-medium">DataStream</span>
+                        <span class="text-xs text-gray-500">Real-time pipeline</span>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex flex-col gap-0.5 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-sm font-medium">Vault</span>
+                        <span class="text-xs text-gray-500">Secrets & config</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="p-6">
+                  <p class="font-display text-xs tracking-[0.2em] text-gray-500 mb-4">TOOLING</p>
+                  <ul role="none" class="space-y-1">
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex flex-col gap-0.5 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-sm font-medium">CLI Suite</span>
+                        <span class="text-xs text-gray-500">Terminal-first workflow</span>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex flex-col gap-0.5 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-sm font-medium">Monitor</span>
+                        <span class="text-xs text-gray-500">Observability stack</span>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex flex-col gap-0.5 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-sm font-medium">Deploy</span>
+                        <span class="text-xs text-gray-500">One-click releases</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Footer bar -->
+              <div class="px-6 py-3 border-t border-white/5 flex items-center gap-6" style="background:#0f0f0f;">
+                <span class="text-xs text-gray-600">NEW →</span>
+                <a href="#" class="dropdown-link text-xs text-gray-400 hover:text-white transition-colors focus-visible:outline-amber-400">ArchOS v3.0 released</a>
+                <a href="#" class="dropdown-link text-xs text-gray-400 hover:text-white transition-colors focus-visible:outline-amber-400">Read release notes</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- ─── SOLUTIONS (mega) ─── -->
+          <li role="none" class="nav-item">
+            <a
+              href="#"
+              role="menuitem"
+              aria-haspopup="true"
+              aria-expanded="false"
+              tabindex="0"
+              class="nav-link relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+            >
+              Solutions
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+
+            <!-- MEGA DROPDOWN: Solutions -->
+            <div class="mega-dropdown rounded-xl overflow-hidden shadow-2xl border border-white/10" style="background:#141414; min-width:580px;" role="menu" aria-label="Solutions submenu">
+              <div class="grid grid-cols-2 gap-0">
+                <div class="p-6 border-r border-white/5">
+                  <p class="font-display text-xs tracking-[0.2em] text-gray-500 mb-4">BY TEAM</p>
+                  <ul role="none" class="space-y-1">
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex items-center gap-3 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-lg">⚙️</span>
+                        <div>
+                          <div class="text-sm font-medium">Platform Teams</div>
+                          <div class="text-xs text-gray-500">Internal developer platforms</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex items-center gap-3 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-lg">🔒</span>
+                        <div>
+                          <div class="text-sm font-medium">Security</div>
+                          <div class="text-xs text-gray-500">Zero-trust architecture</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex items-center gap-3 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-lg">📈</span>
+                        <div>
+                          <div class="text-sm font-medium">Growth</div>
+                          <div class="text-xs text-gray-500">Scale from 0 to 10M</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="p-6">
+                  <p class="font-display text-xs tracking-[0.2em] text-gray-500 mb-4">BY INDUSTRY</p>
+                  <ul role="none" class="space-y-1">
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex items-center gap-3 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-lg">🏦</span>
+                        <div>
+                          <div class="text-sm font-medium">Fintech</div>
+                          <div class="text-xs text-gray-500">Compliance-ready infra</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex items-center gap-3 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-lg">🏥</span>
+                        <div>
+                          <div class="text-sm font-medium">Healthcare</div>
+                          <div class="text-xs text-gray-500">HIPAA on autopilot</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li role="none" class="dropdown-col-item rounded-lg">
+                      <a href="#" role="menuitem" tabindex="0" class="dropdown-link flex items-center gap-3 px-3 py-2.5 text-gray-300 transition-colors">
+                        <span class="text-lg">🛒</span>
+                        <div>
+                          <div class="text-sm font-medium">E-Commerce</div>
+                          <div class="text-xs text-gray-500">Peak traffic resilience</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- ─── DOCS (simple, no dropdown) ─── -->
+          <li role="none">
+            <a href="#" role="menuitem" tabindex="0"
+               class="nav-link relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors focus-visible:outline-amber-400 focus-visible:rounded">
+              Docs
+            </a>
+          </li>
+
+          <!-- ─── PRICING (simple) ─── -->
+          <li role="none">
+            <a href="#" role="menuitem" tabindex="0"
+               class="nav-link relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors focus-visible:outline-amber-400 focus-visible:rounded">
+              Pricing
+            </a>
+          </li>
+
+        </ul>
+
+        <!-- CTA -->
+        <div class="flex items-center gap-3">
+          <a href="#" class="hidden md:block text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-amber-400">
+            Sign in
+          </a>
+          <a href="#" class="text-sm font-medium px-4 py-2 rounded-lg transition-all focus-visible:outline-amber-400"
+             style="background:var(--amber); color:#000;">
+            Get started
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+  <main class="max-w-7xl mx-auto px-6 pt-28 pb-20">
+    <div class="fade-up text-center">
+      <p class="font-display text-sm tracking-[0.3em] mb-4" style="color:var(--amber)">CSS-ONLY MEGA MENU</p>
+      <h1 class="font-display text-6xl md:text-8xl tracking-wider text-white mb-6">
+        HOVER THE<br/>NAV ABOVE
+      </h1>
+      <p class="text-gray-400 max-w-md mx-auto text-sm leading-relaxed">
+        Pure CSS via <code class="text-amber-400 bg-white/5 px-1.5 py-0.5 rounded text-xs">:hover</code> +
+        <code class="text-amber-400 bg-white/5 px-1.5 py-0.5 rounded text-xs">:focus-within</code>.
+        No JavaScript. Full keyboard nav. Tab through links to see it work.
+      </p>
+    </div>
+
+    <!-- Concept cards -->
+    <div class="mt-20 grid md:grid-cols-3 gap-4">
+      <div class="rounded-xl p-6 border border-white/5" style="background:#141414;">
+        <div class="font-display text-xs tracking-[0.2em] mb-3" style="color:var(--amber)">TRIGGER</div>
+        <code class="text-sm text-gray-300">:hover & :focus-within</code>
+        <p class="text-xs text-gray-500 mt-2">Parent gains :focus-within when any descendant is focused — keyboard nav free.</p>
+      </div>
+      <div class="rounded-xl p-6 border border-white/5" style="background:#141414;">
+        <div class="font-display text-xs tracking-[0.2em] mb-3" style="color:var(--amber)">LAYOUT</div>
+        <code class="text-sm text-gray-300">grid-cols-3 + absolute</code>
+        <p class="text-xs text-gray-500 mt-2">Absolute dropdown anchored to nav-item parent. Grid for multi-column columns.</p>
+      </div>
+      <div class="rounded-xl p-6 border border-white/5" style="background:#141414;">
+        <div class="font-display text-xs tracking-[0.2em] mb-3" style="color:var(--amber)">TOGGLE</div>
+        <code class="text-sm text-gray-300">opacity + visibility</code>
+        <p class="text-xs text-gray-500 mt-2">visibility delay allows pointer-events to update before element vanishes — no flicker.</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

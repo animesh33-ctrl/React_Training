@@ -1,0 +1,38 @@
+body{
+  background-color: gray;
+}
+
+.allchild
+{
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+}
+ 
+.child1 {
+ background-color: lightblue;
+}
+.child2 {
+ background-color: lightgreen;
+
+}
+.child{
+  background-color: yellow;
+}
+.app
+{
+  background-color: lightgray;
+}
+.app button
+{
+  cursor: pointer;
+}
+
+.light-theme{
+  background-color: white;
+  color: black;
+}
+.dark-theme{
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,85 @@
+<!-- ✅ 6. Custom Modal / Popup (CSS only)
+Goal: Open/close modal using only HTML + CSS
+Requirements:
+• Modal overlay
+• Centered popup
+• Close button
+• Blur background effect
+Concepts: :target or checkbox hack, z-index, backdrop filter
+• :target selector OR checkbox hack
+• Positioning (fixed, absolute)
+• Backdrop (background rgba(), backdrop-filter)
+• Z-index layering
+• Centering (flex or transform trick)
+• Visibility & opacity transitions -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @keyframes slideUp {
+            from{
+                opacity: 0;
+                transform: translateY(3rem);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="text-center">
+
+    <div class="bg-gray-400 min-h-screen flex justify-center items-center relative">
+
+        <!-- Hidden Toggle -->
+        <input type="checkbox" id="toggle" class="hidden peer">
+
+        <!-- Open Button -->
+        <label for="toggle">
+            <span class="bg-gray-700 text-white text-lg p-2 px-4 rounded-full
+            cursor-pointer hover:bg-white hover:text-black
+            transition duration-300 hover:scale-110
+            hover:-translate-y-1 inline-block">
+                Open Popup
+            </span>
+        </label>
+
+        <!-- Background Overlay -->
+        <div class="fixed inset-0 bg-black/50 hidden
+        peer-checked:flex justify-center items-center z-50 transition 
+        duration-300 animate-[slideUp_1s_ease] backdrop-blur-[6px]">
+
+            <!-- Popup Box -->
+            <div class="bg-white w-[24rem] rounded-2xl p-6 shadow-xl
+            text-center flex flex-col gap-4">
+
+                <h2 class="text-2xl font-bold text-gray-800">
+                    Login Successful
+                </h2>
+
+                <p class="text-gray-600">
+                    Welcome back! Popup opened successfully.
+                </p>
+
+                <!-- Close Button -->
+                <label for="toggle"
+                    class="bg-gray-700 text-white px-4 py-2 rounded-full
+                    cursor-pointer hover:bg-black
+                    transition duration-300 hover:scale-105
+                    hover:-translate-y-1 inline-block">
+                    Close
+                </label>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

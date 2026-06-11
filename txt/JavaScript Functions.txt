@@ -1,0 +1,178 @@
+JavaScript Functions — Study Path
+ 
+Step 1 --What are Functions? Beginner
+Functions are reusable code blocks designed to perform a particular task. They only run when called/invoked, and they are fundamental in every programming language.
+javascriptfunction greet() {
+  console.log("Hello, World!");
+}
+ 
+greet(); // Output: Hello, World!
+ 
+Step 2 — Calling Functions Beginner
+A function does nothing on its own — you must call it by writing its name followed by parentheses ().
+javascriptfunction sayHi() {
+  console.log("Hi there!");
+}
+ 
+sayHi();  // Output: Hi there!
+sayHi();  // Can be called multiple times
+ 
+// Without () it just references the function, doesn't run it
+console.log(sayHi); // prints the function itself
+ 
+Step 3 — Function Parameters Beginner
+Parameters are placeholders listed in the function definition. They let you pass values into a function. You can also set default values (ES6).
+javascript// name and age are PARAMETERS
+function introduce(name, age) {
+  console.log("I am " + name + ", age " + age);
+}
+ 
+introduce("Alice", 25); // Output: I am Alice, age 25
+introduce("Bob", 30);   // Output: I am Bob, age 30
+ 
+// Default parameter (ES6)
+function welcome(name = "Guest") {
+  console.log("Welcome, " + name);
+}
+ 
+welcome();        // Output: Welcome, Guest
+welcome("Sara");  // Output: Welcome, Sara
+ 
+Step 4 — Function Return Values Beginner
+A function can send a value back to the caller using the return statement. Without return, a function gives back undefined.
+javascriptfunction add(a, b) {
+  return a + b; // sends result back
+}
+ 
+let result = add(10, 5);
+console.log(result);         // Output: 15
+console.log(add(3, 7) * 2); // Output: 20 (used directly)
+ 
+// Without return → undefined
+function noReturn() { console.log("hi"); }
+console.log(noReturn()); // hi  then  undefined
+ 
+//Any code written after a return is never executed.
+ 
+ 
+Step 5 — Function Arguments Intermediate
+Parameters are the names in the definition. Arguments are the actual values passed when calling. Every regular function also has a built-in arguments object holding all received values.
+javascript// arguments object — holds ALL passed values
+function sumAll() {
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    total += arguments[i];
+  }
+  return total;
+}
+ 
+console.log(sumAll(1, 2, 3));        // Output: 6
+console.log(sumAll(10, 20, 30, 40)); // Output: 100
+ 
+// Modern alternative — rest parameter (ES6)
+function sumRest(...nums) {
+  return nums.reduce((a, b) => a + b, 0);
+}
+ 
+console.log(sumRest(5, 10, 15)); // Output: 30
+ 
+//Arguments only works in regular functions — arrow functions do NOT have it.
+ 
+ 
+Step 6 — Function Expressions Intermediate
+A function expression is a function stored in a variable. Unlike declarations, expressions are not hoisted — you must define them before calling.
+javascript// Function DECLARATION (hoisted — usable before definition)
+function square(x) { return x * x; }
+ 
+// Function EXPRESSION (not hoisted — define before use)
+const cube = function(x) {
+  return x * x * x;
+};
+ 
+console.log(square(4)); // Output: 16
+console.log(cube(3));   // Output: 27
+ 
+// Passing a function expression as a callback
+const double = function(n) { return n * 2; };
+console.log([1, 2, 3].map(double)); // Output: [2, 4, 6]
+ 
+Step 7 — Arrow Functions Intermediate
+Arrow functions are a shorter syntax for function expressions using =>. You can skip the function keyword, return keyword, and {} curly brackets for single-line functions.
+javascript// Regular function expression
+const multiply = function(a, b) { return a * b; };
+ 
+// Arrow function — same logic, shorter syntax
+const multiplyArrow = (a, b) => a * b;
+ 
+console.log(multiplyArrow(4, 5)); // Output: 20
+ 
+// One parameter — parentheses optional
+const double = n => n * 2;
+console.log(double(7)); // Output: 14
+ 
+// Multi-line — need {} and return
+const greet = (name) => {
+  let msg = "Hello, " + name + "!";
+  return msg;
+};
+console.log(greet("Sara")); // Output: Hello, Sara!
+ 
+//Arrow functions do NOT have their own this or arguments. Avoid using them as object methods or constructors.
+
+1. Spread Operator (...)
+Definition: Expands (unpacks) elements of an array or properties of an object into individual values.
+Example:
+ 
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // [1, 2, 3, 4, 5]
+ 
+Use Cases:
+Copy arrays/objects
+Merge arrays/objects
+Pass array elements as function arguments
+Remember: Spread = Expand
+2. Rest Operator (...)
+Definition: Collects multiple values into a single array or object.
+Example:
+ 
+function sum(...nums) {
+  return nums;
+}
+console.log(sum(1, 2, 3)); // [1, 2, 3]
+ 
+Use Cases:
+Accept variable number of function arguments
+Collect remaining elements during destructuring
+
+useEffect hook
+useEffect is used to perform side effects in our react component
+ 
+what is side effects in React?
+-side effects are actions performed with the 'OutSide world'
+-we perform a side effects when we need to reach to outside features of our React component- to perform something
+ 
+most common side effects-
+fetching data from API
+update DOM documents & window
+Timer JS function- setTimeout, setInterval
+subscriptions
+ 
+ 
+useEffect(callback, dependencies)
+ 
+callback- what to run- side effect logic
+dependencies- when to run- is an array of variables & it has optional argument
+ 
+useEffect() runs on every render
+
+
+
+
+
+
+
+
+
+
+

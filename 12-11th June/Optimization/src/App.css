@@ -1,0 +1,14 @@
+.allchild
+{
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+}
+
+.child{
+  background-color: yellow;
+}
+.app
+{
+  background-color: lightgray;
+}

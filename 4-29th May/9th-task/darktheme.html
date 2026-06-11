@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Theme Switcher</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        #theme-toggle:checked ~ div label .abcd{
+            transform: translateX(32px);
+        }
+        #theme-toggle:checked ~ div label{
+            background: rgb(30, 6, 210);
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" id="theme-toggle" class="peer hidden">
+
+    <div class="min-h-screen bg-gray-100 peer-checked:bg-slate-950 transition-all duration-500
+        flex justify-center items-center relative peer-checked:text-white">
+
+        <label for="theme-toggle"
+            class="absolute top-6 right-6 w-16 h-8 bg-gray-300 peer-checked:bg-indigo-500
+            rounded-full cursor-pointer transition-all duration-500">
+
+            <div class="absolute top-1 left-1 h-6 w-6 bg-white rounded-full
+                peer-checked:translate-x-8 transition-all duration-500 abcd">
+            </div>
+        </label>
+
+        <!-- Card -->
+        <div class="w-[420px] rounded-3xl p-8 text-center shadow-2xl bg-white
+            peer-checked:bg-slate-800 transition-all duration-500">
+
+            <!-- Heading -->
+            <h1 class="text-4xl font-bold text-slate-900 
+            transition-all duration-500">
+                Theme Switcher
+            </h1>
+
+            <!-- Text -->
+            <p class="mt-4 text-gray-600 peer-checked:text-gray-300 transition-all
+                duration-500"
+            >
+                Toggle the checkbox to switch the entire page
+                between light and dark mode using Tailwind only.
+            </p>
+
+            <!-- Button -->
+            <button class="mt-6 px-6 py-3 rounded-xl bg-indigo-600
+            hover:bg-indigo-700 cursor-pointer text-white transition-all duration-300"
+            >
+                Explore
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

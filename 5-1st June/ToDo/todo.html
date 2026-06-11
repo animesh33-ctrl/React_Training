@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @keyframes slideDown {
+            from{
+                opacity: 0%;
+                transform: translateY(-3rem);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[linear-gradient(135deg,#312e81,#6d28d9,#db2777)] flex justify-center items-center p-6 relative">
+
+    <!-- Main Container -->
+    <div class="w-[95vw] max-w-[1400px] min-h-[90vh] backdrop-blur-xl bg-white/10
+        border border-white/20 rounded-3xl shadow-2xl flex flex-col items-center gap-8 p-8">
+
+        <!-- Header -->
+        <div class="relative w-[85%] flex justify-center items-center">
+
+            <h1 class="text-3xl font-bold text-white tracking-wide">
+                TO-DO WEBAPP
+            </h1>
+
+            <button
+                id="add-btn-main"
+                class="absolute right-0 bg-indigo-500 hover:bg-indigo-600 px-5 py-2 rounded-xl text-white font-semibold shadow-lg 
+                transition duration-300 hover:scale-110 cursor-pointer"
+            >
+                + Add Task
+            </button>
+
+        </div>
+
+        <!-- Table Header -->
+        <div class="w-[85%] grid grid-cols-4 bg-white/10 backdrop-blur-lg rounded-2xl text-white font-semibold px-6 py-4 border border-white/10 shadow-md text-center">
+
+            <h2 class="">Name</h2>
+            <h2 class="text-center">Description</h2>
+            <h2 class="text-center">Date</h2>
+            <h2 class="text-center">Action</h2>
+
+        </div>
+
+        <!-- Tasks -->
+        <div class="w-[85%] min-h-[32rem] bg-white/5 backdrop-blur-lg rounded-3xl border border-white/10 shadow-xl p-4 overflow-auto">
+
+            <div id="tasks" class="flex flex-col gap-3">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="form-div"
+        class="fixed inset-0 z-10 flex justify-center items-center bg-black/40 backdrop-blur-sm hidden animate-[slideDown_0.5s_ease] transition duration-300">
+
+        <div class="w-[42rem] min-h-[30rem] bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-2xl p-8 text-white">
+
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center mb-8">
+
+                <h2 class="text-3xl font-bold tracking-wide">
+                    Add New Task
+                </h2>
+
+                <button id="close-btn"
+                    class="text-2xl hover:rotate-90 transition duration-300 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <!-- Form -->
+            <form id="form" class="flex flex-col gap-6">
+
+                <!-- Title -->
+                <div class="flex flex-col gap-2">
+
+                    <label for="title" class="text-lg font-semibold text-gray-200">
+                        Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        minlength="2"
+                        placeholder="Enter task title"
+                        class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400 placeholder:text-gray-300">
+
+                </div>
+
+                <!-- Description -->
+                <div class="flex flex-col gap-2">
+
+                    <label for="desc" class="text-lg font-semibold text-gray-200">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="desc"
+                        rows="2"
+                        minlength="20"
+                        placeholder="Enter task description"
+                        class="w-full min-h-[3rem] rounded-xl border border-white/20 bg-white/10 px-4 py-3 resize-none overflow-hidden outline-none focus:ring-2 focus:ring-indigo-400 placeholder:text-gray-300">
+                    </textarea>
+
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-end gap-4 mt-4">
+
+                    <button
+                        id="cancel-btn"
+                        type="button"
+                        class="px-5 py-2 rounded-xl bg-gray-500/40 hover:bg-gray-500/90 transition cursor-pointer">
+                        Cancel
+                    </button>
+
+                    <button
+                        id="add-btn-form"
+                        type="submit"
+                        class="px-6 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 shadow-lg transition hover:scale-105 cursor-pointer">
+                        Add Task
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

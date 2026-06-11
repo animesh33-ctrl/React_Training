@@ -1,0 +1,17 @@
+Functional Component- return (HTML+Logic)
+Class Component
+ 
+Create component- Functional
+step 1- create a file with .jsx 
+step 2- name file 
+step 3- snippet for functional comp- function and return the HTML + Logic
+step 4- export the component
+step 5- import the component in App
+ 
+Create component- Class
+step 1- create a file with .jsx
+step 2- name file
+step 3- snippet for Class comp- class and render method return the HTML+ Logic
+step 4- export the component
+step 5- import the component in App
+

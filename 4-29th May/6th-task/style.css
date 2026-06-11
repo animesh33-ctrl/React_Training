@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    background:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb") no-repeat center center/cover;
+}
+
+/* Hide Checkbox */
+#popup-toggle{
+    display:none;
+}
+
+/* Open Button */
+.open-btn{
+    background:#2563eb;
+    color:white;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.open-btn:hover{
+    background:#1d4ed8;
+}
+
+/* Modal Overlay */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(6px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:1000;
+}
+
+/* Show Modal when checkbox checked */
+#popup-toggle:checked ~ .modal{
+    opacity:1;
+    visibility:visible;
+}
+
+/* Popup Box */
+.popup{
+    position:relative;
+    width:400px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+
+    transform:scale(0.8);
+    transition:0.3s;
+}
+
+/* Popup Animation */
+#popup-toggle:checked ~ .modal .popup{
+    transform:scale(1);
+}
+
+/* Close Button */
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:28px;
+    color:#444;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.close-btn:hover{
+    color:red;
+}
+
+.popup h2{
+    margin-bottom:15px;
+}
+
+.popup p{
+    color:#555;
+    line-height:1.5;
+}

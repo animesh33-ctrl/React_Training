@@ -1,0 +1,8 @@
+z-index
+position 
+display flex
+object-cover
+flex-col
+items-end
+leading-relaxed
+flex-1

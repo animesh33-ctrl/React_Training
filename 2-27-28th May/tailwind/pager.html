@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TechnoPager</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#edf2f6] font-sans">
+
+    <main class="max-w-[1120px] mx-auto my-[30px] px-4">
+
+        <!-- CARD -->
+        <div class="relative bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
+
+            <!-- HEADER -->
+            <div class="
+                relative
+                flex
+                flex-col
+                md:flex-row
+                items-center
+                gap-5
+                bg-gradient-to-r
+                from-[#1f5f85]
+                to-[#1a3a5c]
+                min-h-[220px]
+                p-6
+                md:pr-[330px]
+                overflow-hidden">
+
+                <!-- WHITE ANGLE -->
+                <div class="
+                    hidden
+                    md:block
+                    absolute
+                    top-0
+                    right-0
+                    w-[62%]
+                    h-full
+                    bg-white
+                    z-1
+                    [clip-path:polygon(23%_0,100%_0,100%_100%,0_100%)]">
+                </div>
+
+                <!-- PROFILE PIC -->
+                <div class="relative z-10">
+                    <img src="../../image/photo.jpg"
+                        alt="Profile Pic"
+                        class="
+                        w-20
+                        h-20
+                        rounded-full
+                        border-[3px]
+                        border-white
+                        object-cover">
+                </div>
+
+                <!-- PROFILE INFO -->
+                <div class="
+                    relative
+                    z-10
+                    text-center
+                    md:text-left">
+
+                    <h1 class="text-white text-[1.6rem] font-bold">
+                        Animesh Palui
+                    </h1>
+
+                    <p class="text-[#b0cce0] text-[0.9rem] mt-[5px]">
+                        Pune India
+                    </p>
+
+                    <p class="text-[#b0cce0] text-[0.9rem] mt-[5px]">
+                        paluianimesh31@gmail.com
+                    </p>
+
+                    <p class="text-[#b0cce0] text-[0.9rem] mt-[5px]">
+                        8918767902
+                    </p>
+                </div>
+            </div>
+
+            <!-- BRAND PANEL -->
+            <div class="
+                md:absolute
+                md:top-0
+                md:right-0
+                md:w-[58%]
+                md:h-[220px]
+                flex
+                flex-col
+                items-center
+                md:items-start
+                justify-start
+                p-6
+                md:pl-[92px]
+                z-10">
+
+                <!-- LOGO -->
+                <div class="w-full flex justify-center md:justify-end">
+                    <img src="../../image/iem.png"
+                        alt="IEM LOGO"
+                        class="h-9 md:mr-[70px]">
+                </div>
+
+                <!-- QUOTE -->
+                <div class="mt-6 md:mt-[38px] max-w-[520px] text-center">
+                    <p class="
+                        text-[#3e4d58]
+                        text-[0.95rem]
+                        leading-[1.45]
+                        font-semibold">
+                        Software Engineer experienced in Java, React, SQL.
+                        Focused on building responsive web applications.
+                    </p>
+                </div>
+            </div>
+
+            <!-- BODY ROW -->
+            <div class="flex flex-col md:flex-row relative overflow-hidden">
+
+                <!-- CERTIFICATIONS -->
+                <div class="
+                    relative
+                    w-full
+                    md:w-[35%]
+                    p-6
+                    z-10">
+
+                    <!-- BACK CURVE -->
+                    <div class="
+                        hidden
+                        md:block
+                        absolute
+                        -left-[10px]
+                        -top-6
+                        w-[calc(100%+60px)]
+                        h-[calc(100%+130px)]
+                        bg-[#f1f3f5]
+                        rounded-tr-[130px]
+                        rounded-br-[130px]
+                        -z-10">
+                    </div>
+
+                    <h4 class="
+                        text-[#1a6aaa]
+                        text-[1.1rem]
+                        mb-[14px]
+                        font-semibold">
+                        Certifications
+                    </h4>
+
+                    <div class="
+                        bg-white
+                        rounded-md
+                        p-2
+                        m-[27px]
+                        border
+                        border-[#1a3a5c]">
+                        <p class="text-[#1a6aaa] font-bold">
+                            Java Certificate
+                        </p>
+                    </div>
+
+                    <div class="
+                        bg-white
+                        rounded-md
+                        p-2
+                        m-[27px]
+                        border
+                        border-[#1a3a5c]">
+                        <p class="text-[#1a6aaa] font-bold">
+                            Machine Learning with Python
+                        </p>
+                    </div>
+
+                    <div class="
+                        bg-white
+                        rounded-md
+                        p-2
+                        m-[27px]
+                        border
+                        border-[#1a3a5c]">
+                        <p class="text-[#1a6aaa] font-bold">
+                            AWS Fundamentals
+                        </p>
+                    </div>
+
+                    <!-- QUOTE -->
+                    <div class="
+                        m-[10px]
+                        mt-5
+                        text-[#1a6aaa]
+                        italic
+                        text-[1.15rem]
+                        leading-[1.45]
+                        font-bold
+                        max-w-[240px]">
+                        <p class="pl-[3px]">
+                            "Creating effective solutions with React & SpringBoot"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PROJECTS -->
+                <div class="
+                    w-full
+                    md:w-[65%]
+                    p-6
+                    md:pl-9
+                    md:ml-[52px]
+                    bg-[#fff7f7]">
+
+                    <h3 class="
+                        text-[#1a6aaa]
+                        text-[1.2rem]
+                        mb-[14px]
+                        font-semibold">
+                        Key Projects
+                    </h3>
+
+                    <div class="
+                        bg-[#f8fafc]
+                        rounded-md
+                        p-4
+                        border
+                        border-[#dde8f0]
+                        max-w-[39em]">
+
+                        <p class="
+                            text-[#1a6aaa]
+                            font-bold
+                            mb-2">
+                            Sign Language Recognition
+                        </p>
+
+                        <ul class="
+                            pl-[18px]
+                            text-[#444]
+                            text-[0.9rem]
+                            leading-[1.9]
+                            list-disc">
+
+                            <li>
+                                Real-time sign language recognition system that translates hand gestures into text.
+                            </li>
+
+                            <li>
+                                Used public dataset like ISL and augmented with custom webcam captures.
+                            </li>
+
+                            <li>
+                                Preprocess frames → hand/keypoint detection → sequence modeling (CNN + LSTM/Transformer) → post-processing for smoothing and phrase detection.
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="p-6">
+
+                <div class="overflow-x-auto">
+
+                    <table class="
+                        w-full
+                        md:w-[60%]
+                        md:float-right
+                        text-[0.9rem]
+                        bg-[#fff7f7]
+                        rounded-[22px]
+                        overflow-hidden">
+
+                        <tr>
+                            <th class="
+                                bg-[#dbeaf7]
+                                text-[#1a6aaa]
+                                py-[10px]
+                                px-[14px]
+                                text-center
+                                rounded-l-[14px]">
+                                Technology
+                            </th>
+
+                            <th class="
+                                bg-[#dbeaf7]
+                                text-[#1a6aaa]
+                                py-[10px]
+                                px-[14px]
+                                text-center">
+                                Experience Level
+                            </th>
+
+                            <th class="
+                                bg-[#dbeaf7]
+                                text-[#1a6aaa]
+                                py-[10px]
+                                px-[14px]
+                                text-center
+                                rounded-r-[14px]">
+                                Months of Experience
+                            </th>
+                        </tr>
+
+                        <tr class="hover:bg-red-100 transition">
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">Java Spring Boot</td>
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">Intermediate</td>
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">3</td>
+                        </tr>
+
+                        <tr class="hover:bg-red-100 transition">
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">Python</td>
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">Intermediate</td>
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">8</td>
+                        </tr>
+
+                        <tr class="hover:bg-red-100 transition">
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">SQL</td>
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">Intermediate</td>
+                            <td class="py-[10px] px-[14px] border-b border-[#e8f0f8] text-center">11</td>
+                        </tr>
+
+                        <tr class="hover:bg-red-100 transition">
+                            <td class="py-[10px] px-[14px] text-center">Machine Learning</td>
+                            <td class="py-[10px] px-[14px] text-center">Beginner</td>
+                            <td class="py-[10px] px-[14px] text-center">2</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

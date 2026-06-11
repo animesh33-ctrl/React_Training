@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Learning Javascript</h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+
+        <script>
+            const start = document.getElementById("start");
+            const stop = document.getElementById("stop");
+
+            const printConsole = (str) => {
+                console.log(str, new Date().toLocaleTimeString());
+            };
+
+            let intervalId = null;
+
+            start.addEventListener("click", function () {
+                if (!intervalId) {
+                    intervalId = setInterval(printConsole, 1000, "Animesh");
+                }
+            });
+            stop.addEventListener("click", function () {
+                clearInterval(intervalId);
+            });
+        </script>
+    </body>
+</html>

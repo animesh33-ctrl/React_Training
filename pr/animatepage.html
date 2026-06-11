@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @keyframes float {
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(-2rem);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from{
+                text-shadow: 0 0 0.5rem #facc15;
+            }
+
+            to{
+                text-shadow: 0 0 1.5rem #facc15, 0 0 2rem #facc15;
+            }
+        }
+
+        @keyframes slideUp {
+            from{
+                opacity: 0;
+                transform: translateY(3rem);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from{
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="min-h-screen bg-[linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899)] relative flex justify-center 
+        items-center z-0">
+
+        <div class="w-[11rem] h-[11rem] rounded-full bg-gray-400 z-[1] absolute top-[20vh] left-[15vh] 
+            animate-[float_6s_infinite_ease-in-out]">
+        </div>
+
+        <div class="w-[5rem] h-[5rem] rounded-full bg-[#93c5fd] z-[100] absolute bottom-[50vh] right-[46vh] 
+            animate-[float_5s_infinite_ease-in-out]">
+        </div>
+
+        <div class="w-[18rem] h-[18rem] rounded-full bg-pink-300 z-[2] absolute bottom-[12vh] right-[19vh] 
+            animate-[float_8s_infinite_ease-in-out]">
+        </div>
+
+        <div class="relative text-[Arial,sans-serif] z-[999] text-center
+            w-[90%] max-w-[50rem] text-white -mt-[2rem]">
+
+            <h1 class="text-[72px] font-bold pb-[16px] animate-[slideUp_1s_ease] ">Build Your Future <br>With <br>
+                <span class="text-[75px] text-[#facc15] animate-[glow_2s_infinite_alternate]">Creative Technology</span>
+            </h1>
+
+            <p class="text-2xl animate-[fadeIn_1.5s_ease]">Design modern experiences, launch products,
+                and create powerful digital solutions.
+            </p>
+
+            <div class="flex justify-center gap-3 flex-wrap mt-6 animate-[slideUp_1.5s_ease]">
+
+                <button class="bg-white text-[#4f46e5] p-[10px] px-[20px] rounded-full hover:-translate-y-[5px]
+                    hover:bg-gray-300 transition duration-400 cursor-pointer">
+                    Get Started
+                </button>
+
+                <button class="p-[10px] px-[20px] rounded-full border border-white hover:bg-gray-300
+                    hover:text-[#4f46e5] transition duration-400 hover:-translate-y-[5px] cursor-pointer">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

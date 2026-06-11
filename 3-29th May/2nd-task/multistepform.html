@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="form-card">
+
+        <h1>Registration Form</h1>
+
+        <!-- Hidden Radio Navigation -->
+        <input type="radio" name="step" id="step1" checked hidden>
+        <input type="radio" name="step" id="step2" hidden>
+        <input type="radio" name="step" id="step3" hidden>
+
+        <!-- Step Indicator -->
+        <div class="steps">
+
+            <div class="step-group">
+
+                <div class="step step-1">
+                    <div class="circle">1</div>
+                    <p>Account</p>
+                </div>
+
+                <div class="line line-1"></div>
+
+                <div class="step step-2">
+                    <div class="circle">2</div>
+                    <p>Profile</p>
+                </div>
+
+                <div class="line line-2"></div>
+
+                <div class="step step-3">
+                    <div class="circle">3</div>
+                    <p>Education</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Form -->
+        <form>
+
+            <!-- STEP 1 -->
+            <div class="page page1">
+
+                <fieldset>
+
+                    <legend>Step 1 : Account Details</legend>
+
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Full Name</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Email Address</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="password"
+                        minlength="6" required placeholder=" ">
+                        <label for="password">Password</label>
+                    </div>
+
+                </fieldset>
+
+                <div class="btn-group">
+                    <label for="step2" class="btn">
+                        Continue
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="page page2">
+
+                <fieldset>
+
+                    <legend>Step 2 : Profile Details</legend>
+
+                    <div class="input-group">
+                        <input type="date" id="dob" required>
+                        <label for="dob">Date of Birth</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="tel" id="phone"
+                        required placeholder=" " maxlength="10" 
+                        pattern="[1-9][0-9]{9}">
+                        <label for="phone">Phone Number</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="gender"
+                        required placeholder=" ">
+                        <label for="gender">Gender</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="address"
+                        required placeholder=" ">
+                        <label for="address">Address</label>
+                    </div>
+
+                </fieldset>
+
+                <div class="btn-group">
+
+                    <label for="step1" class="btn secondary">
+                        Back
+                    </label>
+
+                    <label for="step3" class="btn">
+                        Continue
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="page page3">
+
+                <fieldset>
+
+                    <legend>Step 3 : Educational Details</legend>
+
+                    <div class="input-group">
+                        <input type="text" id="college"
+                        required placeholder=" ">
+                        <label for="college">College Name</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="degree"
+                        required placeholder=" ">
+                        <label for="degree">Degree</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="department"
+                        required placeholder=" ">
+                        <label for="department">Department</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="number" id="year"
+                        required placeholder=" ">
+                        <label for="year">Passing Year</label>
+                    </div>
+
+                </fieldset>
+
+                <!-- Terms Last Page -->
+                <div class="checkbox-group">
+
+                    <input type="checkbox"
+                    id="terms" required>
+
+                    <label for="terms">
+                        I agree to Terms & Conditions
+                    </label>
+
+                </div>
+
+                <div class="btn-group">
+
+                    <label for="step2"
+                    class="btn secondary">
+                        Back
+                    </label>
+
+                    <button type="submit">
+                        Submit
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

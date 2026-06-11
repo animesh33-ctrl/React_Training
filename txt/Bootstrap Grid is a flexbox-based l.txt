@@ -1,0 +1,23 @@
+Bootstrap Grid is a flexbox-based layout system used to create responsive web layouts.
+container → main wrapper
+row → horizontal group
+col → columns inside row
+Column Sizes
+Class	Meaning
+col-12	Full width
+col-6	Half width
+col-4	1/3 width
+col-3	1/4
+ 
+Responsive Breakpoints
+ 
+Class	Screen Size
+col-sm-*	≥ 576px
+col-md-*	≥ 768px
+col-lg-*	≥ 992px
+col-xl-*	≥ 1200px
+Mobile → full width
+Tablet → 2 columns
+Desktop → 3 columns
+ 
+ 

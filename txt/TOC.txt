@@ -1,0 +1,19 @@
+HTML + CSS
+Bootstrap / Tailwind CSS
+JavaScript
+EcmaScript 6+
+Foundation of React JS
+Component Types & Lifecycle
+Applying Styles in React
+Props
+useState()
+Context API
+React Hooks
+React Router	
+Axios / Fetch
+Zustand
+Redux & RTK
+Redux Toolkit
+TanStack React Query
+React Testing
+Optimization & Final Build

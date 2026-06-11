@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-btn">
+        ☰
+    </label>
+    <label for="menu-toggle" class="overlay"></label>
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>TechDash</h2>
+        </div>
+
+        <nav class="nav-links">
+            <span><a href="#">Dashboard</a></span>
+            <span><a href="#">Analytics</a></span>
+            <span><a href="#">Reports</a></span>
+            <span><a href="#">Users</a></span>
+            <span><a href="#">Messages</a></span>
+            <span><a href="#">Settings</a></span>
+            <span><a href="#">Support</a></span>
+            <span><a href="#">Logout</a></span>
+        </nav>
+
+    </aside>
+
+    <!-- Main Area -->
+    <div class="main-section">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="header-left">
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="header-right">
+                <div class="notification">🔔</div>
+
+                <details class="profile">
+
+                    <summary>
+                        <img src="../../image/photo.jpg" alt="profile pic">
+                    </summary>
+
+                    <div class="profile-menu">
+                        <span>Animesh</span>
+                    </div>
+
+                </details>
+            </div>
+
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>12,540</p>
+            </div>
+
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>$18,240</p>
+            </div>
+
+            <div class="card">
+                <h3>Orders</h3>
+                <p>2,430</p>
+            </div>
+
+            <div class="card">
+                <h3>Growth</h3>
+                <p>+28%</p>
+            </div>
+
+            <div class="card large">
+                <h3>Analytics Widget</h3>
+                <p>
+                    Large content area for charts, reports or analytics.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Tasks</h3>
+                <p>18 Pending</p>
+            </div>
+
+            <div class="card">
+                <h3>Messages</h3>
+                <p>42 New</p>
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>
