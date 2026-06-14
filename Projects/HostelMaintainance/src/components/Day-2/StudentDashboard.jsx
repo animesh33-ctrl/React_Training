@@ -24,6 +24,7 @@ const StudentDashboard = () => {
     { title: "Resolved", value: resolved, color: "bg-green-600" },
   ];
 
+  console.log("Student Dashboard");
   return (
     <div className="w-full m-3 pl-9 pt-7 bg-white/20 rounded-2xl backdrop-blur-3xl pb-8">
       <h1 className="text-4xl font-bold">Student Dashboard</h1>
@@ -50,14 +51,14 @@ const StudentDashboard = () => {
         + Create Request
       </button>
 
-      {latest && (
+      {/* {latest && (
         <div className="mt-5 p-4 bg-white rounded-xl border border-gray-200 max-w-md">
           <p className="font-semibold">Latest Request: {latest.title}</p>
           <p className="text-sm text-gray-500">
             {latest.category} • Status: {latest.status}
           </p>
         </div>
-      )}
+      )} */}
 
       <div className="mt-7">
         <RequestList requestsOverride={myRequests} />

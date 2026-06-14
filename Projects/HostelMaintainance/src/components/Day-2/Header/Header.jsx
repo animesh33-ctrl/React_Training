@@ -4,24 +4,23 @@ import { AuthContext } from "../store/AuthContextObject";
 
 const Header = () => {
   const { user, isAuthenticated } = useContext(AuthContext);
-  console.log(user);
-  console.log(isAuthenticated);
 
   return (
-    <div className="relative w-full h-15 bg-blue-900 rounded-b-lg flex items-center">
-      <div className="w-[25vw] h-full text-white flex items-center justify-center">
-        <h4 className="text-2xl pb-2 font-bold font-mono">
+    <div className="w-full h-15 bg-blue-900 rounded-b-lg flex items-center justify-between px-6">
+      <div className="flex items-center">
+        <h4 className="text-xl font-bold font-mono text-white">
           Smart Hostel Management System
         </h4>
       </div>
 
-      <Navbar />
-
-      {isAuthenticated && (
-        <span className="absolute right-3 top-1/2 -translate-y-1/2 bg-white text-blue-900 font-semibold px-4 py-1 rounded-full text-sm">
-          {user.role === "admin" ? "Admin" : "Student"}
-        </span>
-      )}
+      <div className="flex items-center gap-x-4">
+        <Navbar />
+        {isAuthenticated && user && (
+          <span className="bg-white text-blue-900 font-semibold px-4 py-1 rounded-full text-sm max-w-2xl shadow-sm">
+            {user.role === "admin" ? "ADMIN" : "STUDENT"}
+          </span>
+        )}
+      </div>
     </div>
   );
 };

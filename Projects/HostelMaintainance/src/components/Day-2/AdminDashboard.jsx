@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { RequestContext } from "./store/RequestContextObject";
 
 const statusOptions = ["Open", "In Progress", "Resolved"];
@@ -29,7 +28,6 @@ const AdminDashboard = () => {
               <th className="p-3">Priority</th>
               <th className="p-3">Status</th>
               <th className="p-3">Action</th>
-              <th className="p-3">Details</th>
             </tr>
           </thead>
           <tbody>
@@ -47,7 +45,9 @@ const AdminDashboard = () => {
                     >
                       <option value="">Select</option>
                       {statusOptions.map((s) => (
-                        <option key={s} value={s}>{s}</option>
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
                       ))}
                     </select>
                   ) : (
@@ -73,11 +73,6 @@ const AdminDashboard = () => {
                       Update
                     </button>
                   )}
-                </td>
-                <td className="p-3">
-                  <Link to={`/request/${r.id}`} className="px-3 py-1 bg-indigo-600 text-white rounded-lg">
-                    View
-                  </Link>
                 </td>
               </tr>
             ))}

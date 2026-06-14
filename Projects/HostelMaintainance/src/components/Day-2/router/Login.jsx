@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../store/AuthContextObject";
 
@@ -32,58 +32,89 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login Page</h1>
-      <p>Only Authenticated Users can access dashboards</p>
+    <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4">
+      <div className="w-full max-w-md bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200 p-8">
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold text-gray-800">Welcome Back</h1>
+          <p className="text-gray-500 mt-1">Sign in to access your dashboard</p>
+        </div>
 
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        onSubmit={handleOnSubmit}
-        validationSchema={validationSchema}
-      >
-        {() => (
-          <Form>
-            <div>
-              <label htmlFor="email">
-                Email<span className="text-red-500">*</span>
-              </label>
-              <Field
-                type="email"
-                placeholder="Enter email..."
-                name="email"
-                id="email"
-              ></Field>
-              <ErrorMessage
-                name="email"
-                component="p"
-                className="text-red-500 text-sm italic"
-              />
-            </div>
-            <div>
-              <label htmlFor="password">
-                Password<span className="text-red-500">*</span>
-              </label>
-              <Field
-                type="password"
-                placeholder="Enter password..."
-                name="password"
-                id="password"
-              ></Field>
-              <ErrorMessage
-                name="password"
-                component="p"
-                className="text-red-500 text-sm italic"
-              />
-            </div>
-            <button
-              type="submit"
-              className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mx-auto cursor-pointer"
-            >
-              Submit Request
-            </button>
-          </Form>
-        )}
-      </Formik>
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          onSubmit={handleOnSubmit}
+          validationSchema={validationSchema}
+        >
+          {({ isSubmitting, isValid }) => (
+            <Form className="flex flex-col gap-5">
+              <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-semibold text-gray-700"
+                >
+                  Email<span className="text-red-500 ml-0.5">*</span>
+                </label>
+                <Field
+                  type="email"
+                  placeholder="Enter your email..."
+                  name="email"
+                  id="email"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none
+                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200
+                    placeholder:text-gray-400"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="p"
+                  className="text-red-500 text-sm italic"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="password"
+                  className="text-sm font-semibold text-gray-700"
+                >
+                  Password<span className="text-red-500 ml-0.5">*</span>
+                </label>
+                <Field
+                  type="password"
+                  placeholder="Enter your password..."
+                  name="password"
+                  id="password"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none
+                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200
+                    placeholder:text-gray-400"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="p"
+                  className="text-red-500 text-sm italic"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={!isValid}
+                className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg
+                  hover:bg-blue-700 active:scale-[0.98] transition-all duration-200
+                  cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+              >
+                {isSubmitting ? "Signing in..." : "Sign In"}
+              </button>
+
+              <p className="text-center text-sm text-gray-500 mt-2">
+                Don&apos;t have an account?{" "}
+                <Link
+                  to="/signup"
+                  className="text-blue-600 font-semibold hover:underline"
+                >
+                  Sign Up
+                </Link>
+              </p>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };

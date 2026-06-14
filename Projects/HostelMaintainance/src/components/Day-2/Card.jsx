@@ -1,21 +1,20 @@
 const Card = ({ request, getPriorityStyle, getStatusStyle }) => {
-  const getRandomColor = () => {
-    const colors = [
-      "bg-red-500",
-      "bg-blue-500",
-      "bg-green-500",
-      "bg-yellow-500",
-      "bg-purple-500",
-      "bg-pink-500",
-      "bg-indigo-500",
-      "bg-orange-500",
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
+  // Deterministic color based on category instead of random
+  const getCategoryColor = (category) => {
+    const colorMap = {
+      Electrical: "bg-yellow-500",
+      Plumbing: "bg-blue-500",
+      Cleaning: "bg-green-500",
+      Furniture: "bg-orange-500",
+      Internet: "bg-purple-500",
+    };
+    return colorMap[category] || "bg-gray-500";
   };
+
   return (
-    <div className="flex items-center justify-between border border-gray-300 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300">
+    <div className="flex items-center justify-between border border-gray-300 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 bg-white/60">
       <div className="flex items-center">
-        <div className={`w-2 h-20 ${getRandomColor()}`}></div>
+        <div className={`w-2 h-20 ${getCategoryColor(request.category)}`}></div>
 
         <div className="px-4">
           <h3 className="text-xl font-bold text-gray-800">{request.title}</h3>
