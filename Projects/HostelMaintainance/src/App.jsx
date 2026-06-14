@@ -1,9 +1,9 @@
-import Dashboard from "./components/Day-1/Dashboard";
-import MForm from "./components/Day-1/MForm";
-import RequestList from "./components/Day-1/RequestList";
-import SearchBar from "./components/Day-1/SearchBar";
-import Header from "./components/Header/Header";
-import RequestContextProvider from "./components/Day-1/store/RequestContext";
+import Dashboard from "./components/Day-2/Dashboard";
+import MForm from "./components/Day-2/MForm";
+import RequestList from "./components/Day-2/RequestList";
+import SearchBar from "./components/Day-2/SearchBar";
+import Header from "./components/Day-2/Header/Header";
+import RequestContextProvider from "./components/Day-2/store/RequestContext";
 
 const App = () => {
   return (
