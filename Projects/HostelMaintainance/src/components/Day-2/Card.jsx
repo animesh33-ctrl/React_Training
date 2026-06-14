@@ -1,5 +1,4 @@
 const Card = ({ request, getPriorityStyle, getStatusStyle }) => {
-  // Deterministic color based on category instead of random
   const getCategoryColor = (category) => {
     const colorMap = {
       Electrical: "bg-yellow-500",
@@ -12,7 +11,10 @@ const Card = ({ request, getPriorityStyle, getStatusStyle }) => {
   };
 
   return (
-    <div className="flex items-center justify-between border border-gray-300 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 bg-white/60">
+    <div
+      className="flex items-center justify-between border border-gray-300 rounded-2xl overflow-hidden
+     hover:shadow-md hover:scale-[1.02] transition-all duration-300 bg-white/60"
+    >
       <div className="flex items-center">
         <div className={`w-2 h-20 ${getCategoryColor(request.category)}`}></div>
 

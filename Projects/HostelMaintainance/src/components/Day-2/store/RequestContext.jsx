@@ -11,15 +11,22 @@ const RequestContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    const controller = new AbortController();
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/requests");
+        const response = await axios.get("http://localhost:3000/requests", {
+          signal: controller.signal,
+        });
         setRequests(response.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   const addRequest = useCallback((newRequest) => {

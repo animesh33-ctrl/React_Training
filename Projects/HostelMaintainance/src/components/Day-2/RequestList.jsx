@@ -9,11 +9,11 @@ const RequestList = memo(({ requestsOverride }) => {
   const getPriorityStyle = (priority) => {
     switch (priority) {
       case "High":
-        return "bg-blue-50 text-blue-700 border-blue-200";
+        return "bg-blue-200 text-blue-700 border-blue-200";
       case "Medium":
-        return "bg-sky-50 text-sky-700 border-sky-200";
+        return "bg-sky-200 text-sky-700 border-sky-200";
       case "Low":
-        return "bg-gray-50 text-gray-700 border-gray-200";
+        return "bg-gray-200 text-gray-700 border-gray-200";
       default:
         return "";
     }
@@ -22,11 +22,11 @@ const RequestList = memo(({ requestsOverride }) => {
   const getStatusStyle = (status) => {
     switch (status) {
       case "Open":
-        return "bg-red-50 text-red-700 border-red-200";
+        return "bg-red-200 text-red-700 border-red-200";
       case "In Progress":
-        return "bg-yellow-50 text-yellow-700 border-yellow-200";
+        return "bg-yellow-2000 text-yellow-700 border-yellow-200";
       case "Resolved":
-        return "bg-green-50 text-green-700 border-green-200";
+        return "bg-green-200 text-green-700 border-green-200";
       default:
         return "";
     }

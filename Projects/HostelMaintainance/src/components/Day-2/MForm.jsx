@@ -48,7 +48,7 @@ const MForm = () => {
       "http://localhost:3000/requests",
       newValue,
     );
-    addRequest(response.data); // push server response into context
+    addRequest(response.data);
     alert("Request Submitted Successfully");
     resetForm();
     navigate("/student-dashboard");
@@ -57,17 +57,17 @@ const MForm = () => {
   const inputClass =
     "w-full px-3 py-2 border border-gray-300 rounded-lg outline-none " +
     "focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 " +
-    "placeholder:text-gray-400 bg-white";
+    "placeholder:text-gray-600 bg-white/60";
 
   // console.log("Form Rendered");
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-8">
-      <div className="w-full max-w-2xl bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200 p-8">
+      <div className="w-full max-w-2xl bg-white/40 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200 p-8">
         <h4 className="text-2xl font-bold text-gray-800 mb-1">
           Create Maintenance Request
         </h4>
-        <p className="text-gray-500 text-sm mb-6">
+        <p className="text-black/70 italic text-sm mb-6">
           Fill out the form below to submit a new maintenance request
         </p>
 

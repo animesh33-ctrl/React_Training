@@ -16,14 +16,14 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="w-[full] m-3 pl-3 pt-7 bg-gray-50 rounded-2xl backdrop-blur-3xl pb-8">
-      <h1 className="text-4xl font-bold mb-8 text-center text-gray-50 underline font-serif">
+    <div className="w-[full] m-3 pl-3 pt-7 bg-white/30 rounded-2xl backdrop-blur-3xl pb-8">
+      <h1 className="text-4xl font-bold mb-8 text-center text-blue-600 underline font-serif">
         Admin Dashboard
       </h1>
 
       <div className="bg-white/40 rounded-2xl overflow-hidden border border-gray-200 mr-3">
         <table className="w-full text-left">
-          <thead className="bg-gray-300">
+          <thead className="bg-white/30">
             <tr>
               <th className="p-3">Complaint</th>
               <th className="p-3">Room</th>

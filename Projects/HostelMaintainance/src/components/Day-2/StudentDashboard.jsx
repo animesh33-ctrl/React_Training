@@ -25,18 +25,18 @@ const StudentDashboard = () => {
 
   console.log("Student Dashboard");
   return (
-    <div className="w-[full] m-3 pl-9 pt-7 bg-olive-500 rounded-2xl  pb-8">
+    <div className="w-[full] m-3 pl-9 pt-7 bg-white/30 rounded-2xl  pb-8">
       <h1 className="text-4xl font-bold">Student Dashboard</h1>
 
       <div className="flex gap-6 flex-wrap gap-x-9 mt-5">
         {cards.map((c) => (
           <div
             key={c.title}
-            className=" rounded-xl shadow-md border border-white w-60 flex overflow-hidden"
+            className=" rounded-xl shadow-md border border-white w-60 flex overflow-hidden bg-gray-200"
           >
             <div className={`w-2 ${c.color}`}></div>
             <div className="p-4 flex flex-col justify-center">
-              <h5 className="text-white text-sm">{c.title}</h5>
+              <h5 className="text-gray-900 text-sm">{c.title}</h5>
               <p className="text-3xl font-bold text-gray-800">{c.value}</p>
             </div>
           </div>

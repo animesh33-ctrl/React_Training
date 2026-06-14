@@ -4,7 +4,6 @@ import RequestContextProvider from "./store/RequestContext";
 import AuthContextProvider from "./store/AuthContext";
 
 const Layout = () => {
-  console.log("Layout");
   return (
     <AuthContextProvider>
       <RequestContextProvider>

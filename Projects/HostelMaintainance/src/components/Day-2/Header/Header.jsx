@@ -16,7 +16,7 @@ const Header = () => {
       <div className="flex items-center gap-x-4">
         <Navbar />
         {isAuthenticated && user && (
-          <span className="bg-white text-white font-semibold px-4 py-1 rounded-full text-sm max-w-2xl shadow-sm">
+          <span className="bg-white text-blue-500 font-semibold px-4 py-1 rounded-full text-sm max-w-2xl shadow-sm">
             {user.role === "admin" ? "ADMIN" : "STUDENT"}
           </span>
         )}
