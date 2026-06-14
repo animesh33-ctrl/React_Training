@@ -15,9 +15,13 @@ const SearchBar = memo(() => {
   const statuses = ["Open", "In Progress", "Resolved"];
 
   return (
-    <div className="p-3 m-3 border border-gray-400 rounded-2xl grid grid-cols-3 
-      gap-x-2 max-w-[90%] items-center bg-white/20 backdrop-blur-3xl">
-      <h3 className="text-lg font-semibold col-span-3 mb-3">Search & Filters</h3>
+    <div
+      className="p-3 m-3 border border-gray-400 rounded-2xl grid grid-cols-3 
+      gap-x-2 max-w-[90%] items-center bg-white/20 backdrop-blur-3xl"
+    >
+      <h3 className="text-lg font-semibold col-span-3 mb-3">
+        Search & Filters
+      </h3>
 
       <div className="flex flex-col gap-1">
         <label htmlFor="searchByTitle">Search By Title</label>
@@ -40,7 +44,9 @@ const SearchBar = memo(() => {
         >
           <option value="">All Categories</option>
           {categories.map((c) => (
-            <option key={c.id} value={c.name}>{c.name}</option>
+            <option key={c.id} value={c.name}>
+              {c.name}
+            </option>
           ))}
         </select>
       </div>
@@ -54,7 +60,9 @@ const SearchBar = memo(() => {
         >
           <option value="">All Statuses</option>
           {statuses.map((s) => (
-            <option key={s} value={s}>{s}</option>
+            <option key={s} value={s}>
+              {s}
+            </option>
           ))}
         </select>
       </div>

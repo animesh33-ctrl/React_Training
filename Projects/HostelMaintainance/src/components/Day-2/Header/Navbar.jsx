@@ -5,8 +5,10 @@ import { AuthContext } from "../store/AuthContextObject";
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useContext(AuthContext);
   const navigate = useNavigate();
-  const design = "p-2 bg-indigo-900 rounded-xl px-5";
-  const active = "p-2 bg-indigo-600 rounded-xl px-5";
+  const design =
+    "p-2 bg-indigo-400 rounded-xl px-5 hover:bg-indigo-600 transition duration-300 hover:underline hover:scale-[1.05]";
+  const active =
+    "p-2 bg-green-300 rounded-xl px-5 hover:bg-green-600 transition duration-300 underline hover:scale-[1.05]";
 
   const handleLogout = () => {
     logout();
@@ -41,7 +43,7 @@ const Navbar = () => {
         <>
           <NavLink
             to="/signup"
-            className={({ isActive }) => (isActive ? active : design)}
+            className={`({ isActive }) => (isActive ? active : design)`}
           >
             Sign Up
           </NavLink>

@@ -16,12 +16,14 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="w-full m-3 pl-9 pt-7 bg-white/20 rounded-2xl backdrop-blur-3xl pb-8">
-      <h1 className="text-4xl font-bold mb-5">Admin Dashboard</h1>
+    <div className="w-[full] m-3 pl-3 pt-7 bg-gray-50 rounded-2xl backdrop-blur-3xl pb-8">
+      <h1 className="text-4xl font-bold mb-8 text-center text-gray-50 underline font-serif">
+        Admin Dashboard
+      </h1>
 
-      <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">
+      <div className="bg-white/40 rounded-2xl overflow-hidden border border-gray-200 mr-3">
         <table className="w-full text-left">
-          <thead className="bg-gray-100">
+          <thead className="bg-gray-300">
             <tr>
               <th className="p-3">Complaint</th>
               <th className="p-3">Room</th>
@@ -68,7 +70,7 @@ const AdminDashboard = () => {
                         setEditingId(r.id);
                         setNewStatus(r.status);
                       }}
-                      className="px-3 py-1 bg-blue-500 text-white rounded-lg cursor-pointer"
+                      className="px-3 py-1 bg-blue-700 text-white rounded-lg cursor-pointer hover:bg-blue-500 hover:scale-[1.05] transition duration-300"
                     >
                       Update
                     </button>

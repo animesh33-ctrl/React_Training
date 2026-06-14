@@ -16,7 +16,6 @@ const StudentDashboard = () => {
 
   const open = myRequests.filter((r) => r.status === "Open").length;
   const resolved = myRequests.filter((r) => r.status === "Resolved").length;
-  const latest = myRequests[myRequests.length - 1];
 
   const cards = [
     { title: "My Requests", value: myRequests.length, color: "bg-blue-600" },
@@ -26,18 +25,18 @@ const StudentDashboard = () => {
 
   console.log("Student Dashboard");
   return (
-    <div className="w-full m-3 pl-9 pt-7 bg-white/20 rounded-2xl backdrop-blur-3xl pb-8">
+    <div className="w-[full] m-3 pl-9 pt-7 bg-olive-500 rounded-2xl  pb-8">
       <h1 className="text-4xl font-bold">Student Dashboard</h1>
 
       <div className="flex gap-6 flex-wrap gap-x-9 mt-5">
         {cards.map((c) => (
           <div
             key={c.title}
-            className="bg-white rounded-xl shadow-md border border-gray-200 w-60 flex overflow-hidden"
+            className=" rounded-xl shadow-md border border-white w-60 flex overflow-hidden"
           >
             <div className={`w-2 ${c.color}`}></div>
             <div className="p-4 flex flex-col justify-center">
-              <h5 className="text-gray-500 text-sm">{c.title}</h5>
+              <h5 className="text-white text-sm">{c.title}</h5>
               <p className="text-3xl font-bold text-gray-800">{c.value}</p>
             </div>
           </div>
@@ -50,16 +49,6 @@ const StudentDashboard = () => {
       >
         + Create Request
       </button>
-
-      {/* {latest && (
-        <div className="mt-5 p-4 bg-white rounded-xl border border-gray-200 max-w-md">
-          <p className="font-semibold">Latest Request: {latest.title}</p>
-          <p className="text-sm text-gray-500">
-            {latest.category} • Status: {latest.status}
-          </p>
-        </div>
-      )} */}
-
       <div className="mt-7">
         <RequestList requestsOverride={myRequests} />
       </div>
