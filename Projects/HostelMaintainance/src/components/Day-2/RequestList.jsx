@@ -1,6 +1,7 @@
 import { memo, useContext } from "react";
 import Card from "./Card";
 import { RequestContext } from "./store/RequestContextObject";
+import Spinner from "./Spinner";
 
 const RequestList = memo(({ requestsOverride }) => {
   const { filteredRequests = [] } = useContext(RequestContext);
@@ -39,7 +40,9 @@ const RequestList = memo(({ requestsOverride }) => {
       <h2 className="text-2xl font-bold mb-5">Request List</h2>
 
       {list.length === 0 ? (
-        <h4>Loading</h4>
+        <h4>
+          <Spinner />
+        </h4>
       ) : (
         <div className="space-y-4">
           {list &&
