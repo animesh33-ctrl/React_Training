@@ -1,0 +1,10 @@
+.box{
+    display: flex;
+    gap: 30px;
+}
+
+.bgBox {
+    height: 100px;
+    width: 200px;
+    border: 1px solid black;
+}
