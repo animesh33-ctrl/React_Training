@@ -52,7 +52,6 @@ function App() {
     return result;
   }, [requests, searchText, statusFilter, sortBy]);
 
-  
   // TODO 2:
   // Students must convert these handlers to useCallback wherever useful.
   const handleViewDetails = useCallback((request) => {
