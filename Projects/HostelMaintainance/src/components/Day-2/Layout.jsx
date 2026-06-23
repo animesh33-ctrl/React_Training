@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <AuthContextProvider>
       <RequestContextProvider>
-        <div className="min-h-screen w-screen bg-linear-to-br from-purple-400 via-indigo-400 to-pink-300 overflow-hidden">
+        <div className="min-h-screen w-screen  overflow-hidden">
           <Header />
           <Outlet />
         </div>

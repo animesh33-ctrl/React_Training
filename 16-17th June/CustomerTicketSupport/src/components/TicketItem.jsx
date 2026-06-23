@@ -6,6 +6,7 @@ import {
 } from "../store/ticketSlice";
 
 import { useDispatch, useSelector } from "react-redux";
+import { memo } from "react";
 
 const TicketItem = ({ ticket }) => {
   const dispatch = useDispatch();
@@ -41,8 +42,9 @@ const TicketItem = ({ ticket }) => {
         ${
           isActive
             ? "bg-blue-50 border-r-4 border-r-blue-500"
-            : "hover:bg-slate-50"
+            : "hover:bg-slate-100 hover:scale-[1.05]"
         }
+        border-slate-300 border
       `}
     >
       <div className="flex items-start justify-between gap-4">
@@ -92,4 +94,4 @@ const TicketItem = ({ ticket }) => {
   );
 };
 
-export default TicketItem;
+export default memo(TicketItem);

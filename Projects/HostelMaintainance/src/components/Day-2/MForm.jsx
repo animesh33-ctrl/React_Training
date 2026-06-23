@@ -1,14 +1,15 @@
-import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { RequestContext } from "./store/RequestContextObject";
 import { AuthContext } from "./store/AuthContextObject";
 import { useNavigate } from "react-router-dom";
+import useFetch from "./hooks/useFetch";
 
 const MForm = () => {
   const { addRequest } = useContext(RequestContext);
   const { user } = useContext(AuthContext);
+  const { execute } = useFetch();
   const navigate = useNavigate();
   const categories = [
     { id: 1, name: "Electrical" },
@@ -44,11 +45,13 @@ const MForm = () => {
       createdAt: new Date().toISOString().split(".")[0] + "Z",
     };
 
-    const response = await axios.post(
-      "http://localhost:3000/requests",
-      newValue,
-    );
-    addRequest(response.data);
+    const res = await execute({
+      method: "post",
+      body: newValue,
+      url: "http://localhost:3000/requests",
+    });
+    // console.log(res);
+    addRequest(res);
     alert("Request Submitted Successfully");
     resetForm();
     navigate("/student-dashboard");

@@ -10,7 +10,7 @@ const Navbar = () => {
   after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-70 `;
 
   const active = `relative inline-block p-2 px-5 bg-green-600 rounded-xl transition duration-300 hover:bg-green-700 hover:scale-[1.05]
-  after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-2 after:h-[2px] after:w-full after:bg-white after:scale-x-70`;
+  after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-2 after:h-[2px] after:w-full after:bg-black/80 after:scale-x-70 text-black/80`;
 
   const handleLogout = () => {
     logout();

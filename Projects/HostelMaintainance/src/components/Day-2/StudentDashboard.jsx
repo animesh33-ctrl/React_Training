@@ -23,7 +23,7 @@ const StudentDashboard = () => {
     { title: "Resolved", value: resolved, color: "bg-green-600" },
   ];
 
-  console.log("Student Dashboard");
+  // console.log("Student Dashboard");
   return (
     <div className="w-[full] m-3 pl-9 pt-7 bg-white/30 rounded-2xl  pb-8">
       <h1 className="text-4xl font-bold">Student Dashboard</h1>

@@ -13,6 +13,7 @@ const SearchBar = memo(() => {
   ];
 
   const statuses = ["Open", "In Progress", "Resolved"];
+  const PRIORITIES = ["Low", "Medium", "High"];
 
   return (
     <div
@@ -60,6 +61,21 @@ const SearchBar = memo(() => {
         >
           <option value="">All Statuses</option>
           {statuses.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="flex flex-col gap-1">
+        <label htmlFor="priority">Priority</label>
+        <select
+          id="priority"
+          onChange={(e) => updateFilter("priority", e.target.value)}
+          className="border border-gray-600 rounded-md p-1 outline-none max-w-[75%] focus:border-2 focus:border-blue-500"
+        >
+          <option value="">Select Priority</option>
+          {PRIORITIES.map((s) => (
             <option key={s} value={s}>
               {s}
             </option>

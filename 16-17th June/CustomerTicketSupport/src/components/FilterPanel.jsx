@@ -5,9 +5,6 @@ import { activeFilter, filterTicket } from "../store/ticketSlice";
 const FilterPanel = () => {
   const dispatch = useDispatch();
   const isActiveFilter = useSelector((state) => activeFilter(state.ticket));
-  const handleClick = (filterValue) => {
-    dispatch(filterTicket(filterValue));
-  };
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-4">
@@ -20,7 +17,7 @@ const FilterPanel = () => {
           {FILTERS.map((filter) => (
             <button
               key={filter}
-              onClick={() => handleClick(filter)}
+              onClick={() => dispatch(filterTicket(filter))}
               className={`rounded-lg px-4 py-2 text-sm font-medium transition
                 ${
                   isActiveFilter === filter

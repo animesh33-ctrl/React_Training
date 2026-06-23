@@ -19,7 +19,7 @@ const TicketList = () => {
 
       <div className="flex-1 overflow-y-auto">
         {tickets.length > 0 ? (
-          <div className="divide-y divide-slate-200">
+          <div className="divide-y divide-slate-600">
             {tickets.map((ticket) => (
               <TicketItem key={ticket.id} ticket={ticket} />
             ))}
