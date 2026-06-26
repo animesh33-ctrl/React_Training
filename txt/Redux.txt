@@ -1,0 +1,32 @@
+Redux is a JS library for predictable and maintainable global state management.
+ 
+Redux is a pattern and library for managing and updating global application state, where the UI triggers events called "actions" to describe what happened, and separate update logic called "reducers" updates the state in response. It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.
+ 
+Redux is more useful when:
+1.You have large amounts of application state that are needed in many places in the app
+2.The app state is updated frequently over time
+3.The logic to update that state may be complex
+4.The app has a medium or large-sized codebase, and might be worked on by many people
+ 
+State:
+Single source of truth that is stored in store, which would be updated more often
+ 
+Action: plain JS object which tells What action is performed. It consists of 
+type:- What action occured, payload:-Metadata
+ 
+Reducer:- Pure JS function which takes current state value and an action and returns new state
+ 
+action{
+	type:"increment"
+	payload:10
+}
+ 
+Reducer(state,action)
+{
+	return( 
+  		state:{...state,count:count+payload}
+    	      )
+}
+ 
+Dispatch:Dispatch an action to store
+Store: Holds the state of an app and manages the updates in state

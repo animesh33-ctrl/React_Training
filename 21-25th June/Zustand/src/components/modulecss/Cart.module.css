@@ -1,0 +1,107 @@
+.cartCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cartInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cartInfo h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+}
+
+.cartCategory {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #c4b5fd;
+}
+
+.cartPrice {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a5f3fc;
+}
+
+.cartActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cartButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: #1f2937;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cartButton span {
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  color: white;
+  line-height: 1;
+}
+
+.cartButton p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.cartBtns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.removeBtn {
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#ef4444,#8d1515);
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.removeBtn:hover {
+  background: #dc2626;
+}
+
+.wishBtn {
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #f472b6;
+  color: #f9a8d4;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.wishBtn:hover {
+  background: rgba(244, 114, 182, 0.15);
+}
