@@ -1,0 +1,31 @@
+
+
+
+#root {
+  background: linear-gradient(135deg, #0f0f1a 0%, #111827 50%, #0f172a 100%);
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.course-slider::-webkit-scrollbar { height: 6px; }
+.course-slider::-webkit-scrollbar-track { background: transparent; }
+.course-slider::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 50px;
+}
+.course-slider::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.75);
+}
+
+button{
+    cursor: pointer;
+}
+button:disabled{
+  cursor: not-allowed;
+}
